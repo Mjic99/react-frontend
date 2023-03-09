@@ -14,7 +14,7 @@ jobs:
       - run: docker run -e CI=true cygnetops/react-test npm test
  
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: zip -r deploy-2.zip . -x '*.git*'
  
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
@@ -26,4 +26,4 @@ jobs:
           existing_bucket_name: elasticbeanstalk-us-east-2-361835183130
           region: us-east-2
           version_label: ${{ github.sha }}
-          deployment_package: deploy.zip
+          deployment_package: deploy-2.zip
